@@ -16,8 +16,21 @@ contract WIP is
     ERC20Permit,
     ERC20Votes
 {
+    uint256 public postThreshold;
+    uint256 public commentThreshold;
+
     constructor() ERC20("WIP", "WIP") ERC20Permit("WIP") {
         _mint(msg.sender, 1000000 * 10**decimals());
+        postThreshold = 100 * 10**decimals();
+        commentThreshold = 25 * 10**decimals();
+    }
+
+    function changePostThreshold(uint256 newThreshold) public onlyOwner {
+        postThreshold = newThreshold * 10**decimals();
+    }
+
+    function changeCommentThreshold(uint256 newThreshold) public onlyOwner {
+        commentThreshold = newThreshold * 10**decimals();
     }
 
     function pause() public onlyOwner {

@@ -8188,7 +8188,7 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
-truffle-plugin-verify@^0.5.15:
+truffle-plugin-verify@^0.5.25:
   version "0.5.25"
   resolved "https://registry.yarnpkg.com/truffle-plugin-verify/-/truffle-plugin-verify-0.5.25.tgz#2deab32850f7155215e20336846e34daf92f7143"
   integrity sha512-LWx1mPKSP+eiiE0/VgTL9tixVdnHXwhd7eVV3zBhyuR1sJwecvEMrRbDqxDz9fAzcDzXyf43xmsi/MaR2h1EVg==

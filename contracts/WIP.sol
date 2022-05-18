@@ -33,6 +33,14 @@ contract WIP is
         commentThreshold = newThreshold * 10**decimals();
     }
 
+    function canPost(address from) public view returns (bool) {
+        return balanceOf(from) >= postThreshold;
+    }
+
+    function canComment(address from) public view returns (bool) {
+        return balanceOf(from) >= commentThreshold;
+    }
+
     function pause() public onlyOwner {
         _pause();
     }

@@ -46,6 +46,13 @@ function App() {
             <EthName address={accounts[0]} />
             <Price base={balance} />
             {canPost ? <a href="#">post</a> : applyForWip}
+            {balance > 0 ? (
+              <a href="#" onClick={toggleForm}>
+                Send $WIP
+              </a>
+            ) : (
+              ""
+            )}
           </nav>
         ) : (
           <nav>

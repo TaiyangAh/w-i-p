@@ -1,34 +1,36 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from "next/head";
+import Image from "next/image";
 
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from "react";
 
-import EthName from '../components/EthName'
-import SendForm from '../components/SendForm'
-import Post from '../components/Post'
-import Price from '../components/Price'
+import EthName from "../components/EthName";
+import SendForm from "../components/SendForm";
+import Post from "../components/Post";
+import Price from "../components/Price";
 
-import metadata from '../public/data/metadata.json'
+import metadata from "../public/data/metadata.json";
+
+import { WalletContext } from "../lib/wallet";
 
 function App() {
-  const [toggleSendForm, setToggleSendForm] = useState(false)
+  const wallet = useContext(WalletContext);
+
+  const [toggleSendForm, setToggleSendForm] = useState(false);
 
   useEffect(() => {
     if (toggleSendForm) {
-      document.body.classList.add("send-form")
+      document.body.classList.add("send-form");
     } else {
-      document.body.classList.remove("send-form")
+      document.body.classList.remove("send-form");
     }
-  }, [toggleSendForm])
+  }, [toggleSendForm]);
 
-  const applyForWip = (
-    <a href="#">Apply for $WIP</a>
-  )
+  const applyForWip = <a href="#">Apply for $WIP</a>;
 
-  const toggleForm = e => {
-    e.preventDefault()
-    setToggleSendForm(!toggleSendForm)
-  }
+  const toggleForm = (e) => {
+    e.preventDefault();
+    setToggleSendForm(!toggleSendForm);
+  };
 
   return (
     <>
@@ -37,11 +39,15 @@ function App() {
       </Head>
 
       <header>
-        <h1>W<span>&mdash;</span>I<span>&mdash;</span>P</h1>
+        <h1>
+          W<span>&mdash;</span>I<span>&mdash;</span>P
+        </h1>
 
         <nav>
           {applyForWip}
-          <a href="#" className="primary-action">Connect wallet</a>
+          <a href="#" className="primary-action">
+            Connect wallet
+          </a>
         </nav>
       </header>
 
@@ -49,9 +55,7 @@ function App() {
 
       <main>
         {metadata.map((data, index) => {
-          return (
-            <Post data={data} key={index} />
-          )
+          return <Post data={data} key={index} />;
         })}
       </main>
     </>

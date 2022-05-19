@@ -44,8 +44,9 @@ function App() {
         </h1>
 
         <nav>
+          {wallet.isConnected ? wallet.accounts[0] : "Not conneted"}
           {applyForWip}
-          <a href="#" className="primary-action">
+          <a href="#" className="primary-action" onClick={wallet.connect}>
             Connect wallet
           </a>
         </nav>

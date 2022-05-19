@@ -13,7 +13,7 @@ import metadata from "../public/data/metadata.json";
 import { WalletContext } from "../lib/wallet";
 
 function App() {
-  const wallet = useContext(WalletContext);
+  const { accounts, isConnected, connect } = useContext(WalletContext);
 
   const [toggleSendForm, setToggleSendForm] = useState(false);
 
@@ -43,13 +43,16 @@ function App() {
           W<span>&mdash;</span>I<span>&mdash;</span>P
         </h1>
 
-        <nav>
-          {wallet.isConnected ? wallet.accounts[0] : "Not conneted"}
-          {applyForWip}
-          <a href="#" className="primary-action" onClick={wallet.connect}>
-            Connect wallet
-          </a>
-        </nav>
+        {isConnected ? (
+          <nav className="connected">{accounts[0]}</nav>
+        ) : (
+          <nav>
+            {applyForWip}
+            <a href="#" className="primary-action" onClick={connect}>
+              Connect wallet
+            </a>
+          </nav>
+        )}
       </header>
 
       <SendForm />
